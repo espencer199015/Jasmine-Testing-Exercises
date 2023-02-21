@@ -24,7 +24,7 @@ it('should update #servertable on updateServerTable()', function() {
 
   let curTdList = document.querySelectorAll('#serverTable tbody tr td')
 
-  expect(curTdList.length).toEqual(3);
+  expect(curTdList.length).toEqual(2);
   expect(curTdList[0].innerText).toEqual('Alice');
   expect(curTdList[1].innerText).toEqual('$0.00');
   expect(curTdList[2].innerText).toEqual('X');

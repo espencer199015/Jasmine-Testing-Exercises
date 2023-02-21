@@ -6,6 +6,12 @@ describe("setup and teardown of payments", function() {
 
     it('needs to add a new payment to allPayments on submitPayment', function() {
         submitPaymentInfo();
+        let curPayment = createCurPayment();
+    allPayments['payment1'] = curPayment;
+
+    appendPaymentTable(curPayment);
+
+    let curTdList = document.querySelectorAll('#paymentTable tbody tr td');
 
         expect(Object.keys(allPayments).length).toEqual(1);
         expect(allPayments['payment1'].billAmt).toEqual('100');
@@ -20,7 +26,7 @@ describe("setup and teardown of payments", function() {
         expect(Object.keys(allPayments).length).toEqual(0);
     });
 
-    it('needs to create a new payment on createCurPayment()', funtion () {
+    it('needs to create a new payment on createCurPayment()', function() {
         let expectedPayment = {
             billAmt: '100',
             tipAmt: '20',
@@ -40,7 +46,7 @@ describe("setup and teardown of payments", function() {
     afterEach(function() {
         billAmtInput.value = '';
         tipAmtInput.value = '';
-        paymentFormTbody.innerHTML = '';
+        let paymentFormTbody.innerHTML = '';
         summaryTds[0].innerHTML = '';
         summaryTds[1].innerHTML = '';
         summaryTds[2].innerHTML = '';
